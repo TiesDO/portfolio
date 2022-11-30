@@ -31,6 +31,7 @@ body {
 /* Hero description in general */
 
 .hero-text-container {
+	position: relative;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -49,7 +50,18 @@ body {
 /* Tool Descriptions */
 
 .tool-descriptions {
-	display: none;
+	position: absolute;
+	z-index: -1;
+	cursor: none;
+	top: 0;
+	opacity: 0;
+
+	transition: opacity 300ms ease-in 350ms;
+}
+
+.tool-descriptions.active {
+	z-index: 200;
+	opacity: 1;
 }
 
 /* Hero Icons */
@@ -94,7 +106,7 @@ body {
 
 	width: 300vmax;
 
-	transition: transform ease-out 1s;
+	transition: transform ease-in 0.3s;
 }
 
 .icon.active::before {
