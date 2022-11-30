@@ -1,5 +1,5 @@
 const initializeIcons = () => {
-	const icons = document.querySelectorAll('.hero > .icons .icon');
+	const icons = document.querySelectorAll('.hero .icons .icon');
 
 	// description text containers
 	const descriptions = document.querySelector('#toolDescriptions');

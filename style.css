@@ -16,16 +16,22 @@ body {
 /* Hero styles */
 
 .hero {
-	box-sizing: border-box;
 	position: relative;
 
 	overflow: hidden;
 	height: 100vh;
 	width: 100vw;
 	padding: 1rem;
+}
 
+.hero-content {
+	max-width: 400px;
+	height: 100%;
 	display: grid;
 	grid-template-rows: auto auto;
+
+	margin: 0 auto;
+	box-sizing: border-box;
 }
 
 /* Hero description in general */
@@ -78,6 +84,7 @@ body {
 	padding: 1rem;
 
 	border-radius: 50%;
+	max-width: 70px;
 
 	aspect-ratio: 1 / 1;
 	display: flex;
@@ -125,5 +132,21 @@ body {
 
 /* end of hero icons */
 
-@keyframes expandIconBubble {
+@media only screen and (min-width: 800px) {
+	.hero-content {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		max-width: 1000px;
+	}
+
+	.hero-text-container {
+		grid-column: 2;
+
+		margin: auto 0;
+	}
+
+	.icons {
+		grid-column: 1;
+		grid-row: 1;
+	}
 }
