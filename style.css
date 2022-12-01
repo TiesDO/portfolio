@@ -3,7 +3,20 @@
 }
 
 :root {
-	--primary: orange;
+	--c-github: #000000;
+	--c-github-bg: #bdbdbd;
+	--c-chrome: #247bff;
+	--c-chrome-bg: #adceff;
+	--c-vscode: #47b1f3;
+	--c-vscode-bg: #badaee;
+	--c-vscom: #b179f1;
+	--c-vscom-bg: #ead7ff;
+	--c-postman: #fd6c35;
+	--c-postman-bg: #ffcab5;
+	--c-figma: #f24e1e;
+	--c-figma-bg: #ffb6a0;
+
+	--primary: rgb(255, 144, 40);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -94,6 +107,30 @@ section.test {
 
 .tool-descriptions > div.active {
 	display: block;
+}
+
+.tool-descriptions > div[data-text-for='vscode'] span {
+	color: var(--c-vscode);
+}
+
+.tool-descriptions > div[data-text-for='vscom'] span {
+	color: var(--c-vscom);
+}
+
+.tool-descriptions > div[data-text-for='github'] span {
+	color: var(--c-github);
+}
+
+.tool-descriptions > div[data-text-for='chrome'] span {
+	color: var(--c-chrome);
+}
+
+.tool-descriptions > div[data-text-for='postman'] span {
+	color: var(--c-postman);
+}
+
+.tool-descriptions > div[data-text-for='figma'] span {
+	color: var(--c-figma);
 }
 
 /* Hero Icons */
@@ -191,35 +228,35 @@ section.test {
 /* Individual icons */
 
 .hero .icon[data-toggle-for='vscode'] {
-	background-color: #cee5ff !important;
+	background-color: var(--c-vscode-bg) !important;
 	--width: 7rem;
 	--top: 50%;
 	--left: 30%;
 }
 
 .hero .icon[data-toggle-for='vscom'] {
-	background-color: #e9ceff !important;
+	background-color: var(--c-vscom-bg) !important;
 	--width: 4rem;
 	--top: 20%;
 	--left: 47%;
 }
 
 .hero .icon[data-toggle-for='postman'] {
-	background-color: #ffe2ce !important;
+	background-color: var(--c-postman-bg) !important;
 	--width: 4rem;
 	--top: 39%;
 	--left: 64%;
 }
 
 .hero .icon[data-toggle-for='figma'] {
-	background-color: #ffa9bc !important;
+	background-color: var(--c-figma-bg) !important;
 	--width: 3rem;
 	--top: 15%;
 	--left: 72%;
 }
 
 .hero .icon[data-toggle-for='github'] {
-	background-color: #c0b6c2 !important;
+	background-color: var(--c-github-bg) !important;
 	--width: 5rem;
 
 	--top: 71%;
@@ -227,7 +264,7 @@ section.test {
 }
 
 .hero .icon[data-toggle-for='chrome'] {
-	background-color: #61abff !important;
+	background-color: var(--c-chrome-bg) !important;
 	--width: 4rem;
 
 	--top: 55%;
