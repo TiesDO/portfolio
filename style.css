@@ -77,11 +77,10 @@ section.test {
 .tool-descriptions {
 	position: absolute;
 	z-index: -1;
-	cursor: none;
 	top: 0;
 	opacity: 0;
 
-	transition: opacity 300ms ease-in 350ms;
+	transition: opacity 300ms ease-in 200ms;
 }
 
 .tool-descriptions.active {
@@ -112,7 +111,6 @@ section.test {
 
 .hero .icon {
 	position: absolute;
-
 	border-radius: 50%;
 	aspect-ratio: 1/1;
 
@@ -125,14 +123,11 @@ section.test {
 	align-items: center;
 }
 
-.hero .icon.active {
-	z-index: 101;
-}
-
 .hero .icon::before {
 	content: '';
 	display: block;
 	position: absolute;
+	z-index: 101;
 
 	top: 50%;
 	left: 50%;
@@ -147,17 +142,50 @@ section.test {
 
 	width: 300vmax;
 
-	transition: transform ease-in 0.3s;
+	transition: transform ease-in 0.3s, z-index 0s 0.3s;
 }
 
 .hero .icon.active::before {
 	transform: translate(-50%, -50%) scale(1) !important;
-	z-index: 100;
 }
 
 .hero .icon img {
 	z-index: inherit;
 	width: 50%;
+}
+
+.hero .large-icon {
+	position: relative;
+	z-index: 200;
+	pointer-events: none;
+
+	width: 60%;
+	margin: 0 auto;
+
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+
+.hero .large-icon img {
+	content: var(--image);
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+
+	transition: opacity 200ms;
+}
+
+.hero .large-icon.active img {
+	opacity: 1;
+	transition: opacity ease-in 200ms 100ms;
+}
+
+.hero .large-icon::before {
+	display: block;
+	content: '';
+	padding: 50%;
 }
 
 /* Individual icons */

@@ -3,6 +3,7 @@ const initializeIcons = () => {
 
 	// description text containers
 	const descriptions = document.querySelector('#toolDescriptions');
+	const largeIcon = document.querySelector('.hero .large-icon');
 
 	// enter a dummy into each dummy container
 	for (let i = 0; i < icons.length; i++) {}
@@ -22,6 +23,10 @@ const initializeIcons = () => {
 		// make the container visible
 		descriptions.classList.add('active');
 
+		// show the large icon
+		largeIcon.style = `--image: url('images/icons/${target}.png')`;
+		largeIcon.classList.add('active');
+
 		// swap the onclick listener to close
 		e.currentTarget.removeEventListener('click', expandIcon);
 		e.currentTarget.addEventListener('click', collapseIcon);
@@ -39,6 +44,8 @@ const initializeIcons = () => {
 
 		// make the container visible
 		descriptions.classList.remove('active');
+
+		largeIcon.classList.remove('active');
 
 		// swap the event listener
 		e.currentTarget.removeEventListener('click', collapseIcon);
