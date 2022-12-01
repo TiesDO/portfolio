@@ -12,9 +12,14 @@ const initializeIcons = () => {
 		e.currentTarget.classList.add('active');
 
 		// what description should it show
-		let description = e.currentTarget.dataset.toggleFor;
+		let target = e.currentTarget.dataset.toggleFor;
 
 		// toggle the correct tool description
+		descriptions
+			.querySelector(`div[data-text-for='${target}']`)
+			.classList.add('active');
+
+		// make the container visible
 		descriptions.classList.add('active');
 	};
 

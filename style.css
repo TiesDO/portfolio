@@ -76,6 +76,14 @@ body {
 	opacity: 1;
 }
 
+.tool-descriptions > div {
+	display: none;
+}
+
+.tool-descriptions > div.active {
+	display: block;
+}
+
 /* Hero Icons */
 
 .hero .icons {
