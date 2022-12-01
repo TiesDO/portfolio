@@ -11,22 +11,26 @@ body {
 	width: 100vw;
 
 	margin: 0;
+	scroll-behavior: smooth;
 }
 
 /* Hero styles */
 
 .hero {
 	position: relative;
+	display: flex;
+	align-items: center;
+
+	min-height: 100vh;
+	width: 100vw;
 
 	overflow: hidden;
-	height: 100vh;
-	width: 100vw;
-	padding: 1rem;
+	padding: 0 1rem;
 }
 
 .hero-content {
 	max-width: 400px;
-	height: 100%;
+	min-width: 250px;
 	display: grid;
 	grid-template-rows: auto auto;
 
@@ -37,12 +41,14 @@ body {
 /* Hero description in general */
 
 .hero-text-container {
+	height: min-content;
 	position: relative;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .hero-text-container h1 {
 	font-size: 2.4rem;
+	margin-top: 0;
 }
 
 .hero-text-container p {
@@ -73,29 +79,36 @@ body {
 /* Hero Icons */
 
 .hero .icons {
-	position: relative;
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
 }
 
-.hero .icons .icon {
+.hero .icons-inner {
 	position: relative;
-	padding: 1rem;
-
-	border-radius: 50%;
-	max-width: 70px;
-
-	aspect-ratio: 1 / 1;
-	display: flex;
-	place-content: center;
+	height: 15rem;
+	width: 100%;
 }
 
-.hero .icons .icon.active {
+.hero .icon {
+	position: absolute;
+
+	border-radius: 50%;
+	aspect-ratio: 1/1;
+
+	width: var(--width);
+	top: calc(var(--top) - calc(var(--width) / 2));
+	left: calc(var(--left) - calc(var(--width) / 2));
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero .icon.active {
 	z-index: 101;
 }
 
-.hero .icons .icon::before {
+.hero .icon::before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -116,27 +129,74 @@ body {
 	transition: transform ease-in 0.3s;
 }
 
-.icon.active::before {
+.hero .icon.active::before {
 	transform: translate(-50%, -50%) scale(1) !important;
 	z-index: 100;
 }
 
-.vscode {
-	background-color: #cee5ff !important;
+.hero .icon img {
+	z-index: inherit;
+	width: 50%;
 }
 
-.hero .icons .icon img {
-	z-index: inherit;
-	max-width: 10vmin;
+/* Individual icons */
+
+.hero .icon[data-toggle-for='vscode'] {
+	background-color: #cee5ff !important;
+	--width: 7rem;
+	--top: 50%;
+	--left: 30%;
+}
+
+.hero .icon[data-toggle-for='vscom'] {
+	background-color: #e9ceff !important;
+	--width: 4rem;
+	--top: 20%;
+	--left: 47%;
+}
+
+.hero .icon[data-toggle-for='postman'] {
+	background-color: #ffe2ce !important;
+	--width: 4rem;
+	--top: 39%;
+	--left: 64%;
+}
+
+.hero .icon[data-toggle-for='figma'] {
+	background-color: #ffa9bc !important;
+	--width: 3rem;
+	--top: 15%;
+	--left: 72%;
+}
+
+.hero .icon[data-toggle-for='github'] {
+	background-color: #c0b6c2 !important;
+	--width: 5rem;
+
+	--top: 71%;
+	--left: 56%;
+}
+
+.hero .icon[data-toggle-for='chrome'] {
+	background-color: #61abff !important;
+	--width: 4rem;
+
+	--top: 55%;
+	--left: 80%;
 }
 
 /* end of hero icons */
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 900px) {
+	.hero {
+		height: 100vh;
+	}
+
 	.hero-content {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 		max-width: 1000px;
+		gap: 5vmax;
 	}
 
 	.hero-text-container {
@@ -148,5 +208,14 @@ body {
 	.icons {
 		grid-column: 1;
 		grid-row: 1;
+	}
+
+	.vscode {
+	}
+}
+
+@media only screen and (min-width: 1100px) {
+	html {
+		font-size: 1.3rem;
 	}
 }
